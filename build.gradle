@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+
+
+    implementation (
+            // sérülékenység ellen
+            'com.fasterxml.jackson.core:jackson-annotations:2.13.3',
+            //logolás
+            'org.apache.logging.log4j:log4j-slf4j-impl:2.18.0'
+    )
+
+
+            testImplementation(
+        'org.junit.jupiter:junit-jupiter:5.9.0',
+        'org.seleniumhq.selenium:selenium-chrome-driver:4.4.0',
+        'org.seleniumhq.selenium:selenium-support:4.4.0',
+        'io.cucumber:cucumber-java:7.5.0',
+        'io.cucumber:cucumber-junit:7.4.1',
+        'io.github.bonigarcia:webdrivermanager:5.2.0'
+    )
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'stepDefinition', 'src/test/java/features']
+        }
+    }
+}
+
+
+test {
+    useJUnitPlatform()
+}
