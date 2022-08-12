@@ -14,6 +14,7 @@ public class HomePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+    
 
     @FindBy(how = How.XPATH, using = "//button[contains(@class,'header__hamburger-menu')]")
     private WebElement hamburgerMenu;
@@ -26,8 +27,7 @@ public class HomePage {
 
     @FindBy(how = How.XPATH, using = "//button[contains(., 'Elfogadom')]")
     public WebElement acceptCookiesButton;
-
-
+    
 
     public void openHamburgerMenu() {
         hamburgerMenu.click();
