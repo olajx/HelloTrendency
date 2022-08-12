@@ -1,7 +1,7 @@
 # Trendency Referenciák tesztje
 
 ## JAVA 11
-###Java 11 telepítés
+Java 11 telepítése
 [innen](https://www.oracle.com/java/technologies/downloads/)
 
 ## IntelliJ IDEA
