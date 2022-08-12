@@ -19,7 +19,7 @@ TestRunner.java osztályban zöld nyílra jobb klikk és 'Run TestRunner' kivál
 ## Logolás
 Jelenleg konzolon lehet nézni a teszt eredményeket. 
 
-##Futtatás
+## Futtatás
 ### Futtatás TestRunnerrel
 Minden teszt futtatható egyszerre a TestRunner indításával
 
