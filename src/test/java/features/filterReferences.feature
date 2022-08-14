@@ -14,24 +14,29 @@ Feature: References
   Scenario: Filter by android
     When I filter by "Android"
     Then I should see the following references:
-      | origo                  |
-      | planet                 |
-      | zoldut                 |
-      | act2manage             |
-      | parlament              |
-      | hackerAgency           |
-      | ovb                    |
+      | ORIGO app                                                     |
+      | Planet Budapest 2021 Fenntarthatósági Expó és Világtalálkozó  |
+      | Zöld út                                                       |
+      | Act2manage                                                    |
+      | Parlament „E-futár”                                           |
+      | Hackeragency                                                  |
+      | OVB biztosító                                                 |
 
   Scenario: Filter by react
     When I filter by "React"
     Then I should see the following references:
-      | viragosMo                           |
-      | siarena                             |
-      | magyarTurUgy                        |
-      | magyarFejlBank                      |
-      | TheTVoice                           |
+      | Virágos Magyarország                |
+      | Síaréna                             |
+      | Magyar Turisztikai Ügynökség        |
+      | Magyar Fejlesztési Bank             |
+      | The tenants' voice                  |
 
   Scenario: Filter by testing
-    When I filter by "Teszteles"
+    When I filter by "Tesztelés"
     Then I should see the following references:
-      | dssCons                              |
+      | DSS consulting                      |
+
+  Scenario: Validate other scenarios with negative case (handle NoSuchElementException)
+    When I filter by "Tesztelés"
+    Then I should see the following references:
+      | ORIGO app                           |

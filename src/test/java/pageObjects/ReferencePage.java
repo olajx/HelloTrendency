@@ -1,13 +1,9 @@
 package pageObjects;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.Objects;
 
 public class ReferencePage {
 
@@ -73,20 +69,83 @@ public class ReferencePage {
         referencePageTitle.isDisplayed();
     }
 
-    public void filterByAndroid() {
-        androidFilter.isDisplayed();
-        androidFilter.click();
+    public void filterBy(String filter) {
+        switch (filter) {
+            case "Android":
+                androidFilter.isDisplayed();
+                androidFilter.click();
+                break;
+
+            case "React":
+                reactFilter.isDisplayed();
+                reactFilter.click();
+                break;
+
+            case "Tesztelés":
+                openFilterButton.click();
+                tesztelesFilter.isDisplayed();
+                tesztelesFilter.click();
+                break;
+        }
+
     }
 
-    public void filterByReact() {
-        reactFilter.isDisplayed();
-        reactFilter.click();
-    }
+    public String getText(String text) {
+        String ref = "";
+            switch (text) {
+                case "ORIGO app":
+                    ref = origo.getText();
+                    break;
 
-    public void filterByTeszteles() {
-        openFilterButton.click();
-        tesztelesFilter.isDisplayed();
-        tesztelesFilter.click();
+                case "Planet Budapest 2021 Fenntarthatósági Expó és Világtalálkozó":
+                    ref = planetBudapest.getText();
+                    break;
+
+                case "Zöld út":
+                    ref = zoldUt.getText();
+                    break;
+
+                case "Act2manage":
+                    ref = act2manage.getText();
+                    break;
+
+                case "Parlament „E-futár”":
+                    ref = parlamentFutar.getText();
+                    break;
+
+                case "Hackeragency":
+                    ref = hackeragency.getText();
+                    break;
+
+                case "OVB biztosító":
+                    ref = ovbBiztosito.getText();
+                    break;
+
+                case "Virágos Magyarország":
+                    ref = viragosMo.getText();
+                    break;
+
+                case "Síaréna":
+                    ref = siArena.getText();
+                    break;
+
+                case "Magyar Turisztikai Ügynökség":
+                    ref = mTurisztikai.getText();
+                    break;
+
+                case "Magyar Fejlesztési Bank":
+                    ref = mBank.getText();
+                    break;
+
+                case "The tenants' voice":
+                    ref = tenants.getText();
+                    break;
+
+                case "DSS consulting":
+                    ref = dss.getText();
+                    break;
+        }
+        return ref;
     }
 }
 

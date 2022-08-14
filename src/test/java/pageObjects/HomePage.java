@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
     WebDriver driver;
-    HomePage homePage;
+    ReferencePage referencePage;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -28,7 +28,6 @@ public class HomePage {
     public WebElement acceptCookiesButton;
 
 
-
     public void openHamburgerMenu() {
         hamburgerMenu.click();
     }
@@ -43,5 +42,17 @@ public class HomePage {
 
     public void acceptCookies() {
         acceptCookiesButton.click();
+    }
+
+    public void selectMenuItem(String item){
+        referencePage = new ReferencePage(driver);
+
+        switch (item) {
+            case "Home":
+                titleDisplayed();
+                break;
+            case "References":
+                referencePage.titleDisplayed();
+        }
     }
 }

@@ -12,14 +12,12 @@ repositories {
 dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 
-
     implementation (
             // sérülékenység ellen
             'com.fasterxml.jackson.core:jackson-annotations:2.13.3',
             //logolás
             'org.apache.logging.log4j:log4j-slf4j-impl:2.18.0'
     )
-
 
             testImplementation(
         'org.junit.jupiter:junit-jupiter:5.9.0',
@@ -29,8 +27,6 @@ dependencies {
         'io.cucumber:cucumber-junit:7.4.1',
         'io.github.bonigarcia:webdrivermanager:5.2.0'
     )
-
-
 }
 
 test {
@@ -48,7 +44,7 @@ task cucumber() {
     }
 }
 
-
 test {
     useJUnitPlatform()
 }
+
